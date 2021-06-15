@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = False if os.environ.get('PRODUCTION') == '1' else True
 
-ALLOWED_HOSTS = ['localhost', 'python-ecom-app.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     # in-build apps
@@ -144,17 +144,9 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = SEND_GRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'yashgo0018@gmail.com'
+DEFAULT_FROM_EMAIL = 'hainguyen4391@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
-MANAGERS = (
-    ('yashgo0018@gmail.com', 'Yash Goyal'),
-)
-
-ADMINS = (
-    ('yashgo0018@gmail.com', 'Yash Goyal'),
-)
 
 # Static File Settings
 STATICFILES_DIRS = [
@@ -173,9 +165,6 @@ CURRENCY = {
     'code': 'INR',
     'symbol': '₹'
 }
-
-RAZORPAY_KEY_ID = os.environ.get('RAZORPAY_KEY_ID')
-RAZORPAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 
 
 # This will Help django To Log To Console
@@ -216,5 +205,3 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # CORS Settings
 CORS_ORIGIN_ALLOW_ALL = True
-
-STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY', 'sk_test_51InFTWGunfpNLzeIm5uqgknq9k36B0Xhr5NpKQ3Rb9T65bKnmB2cCowOyHPacgVAPCEFG0ODxAni6uixeOpWOIUw00BA42nCLF')
