@@ -12,7 +12,4 @@ class BillingProfileSerializer(serializers.ModelSerializer):
   class Meta:
     model = BillingProfile
     fields = ['id', 'user', 'name', 'email', 'address_line_1',
-              'address_line_2', 'city', 'state', 'country_code', 'pincode', 'country']
-
-  def get_country(self, obj):
-    return obj.country
+              'address_line_2', 'city']

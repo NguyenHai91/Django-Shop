@@ -24,9 +24,6 @@ class BillingProfileAPIView(ListCreateAPIView):
     address_line_1 = data.get('address_line_1')
     address_line_2 = data.get('address_line_2')
     city = data.get('city')
-    state = data.get('state')
-    country = data.get('country')
-    pincode = data.get('pincode')
     # Make The Profile And If Any required field is empty then return 400 error
     try:
       profile = self.request.user.billingprofile_set.create(
@@ -34,19 +31,10 @@ class BillingProfileAPIView(ListCreateAPIView):
         email=email,
         address_line_1=address_line_1,
         address_line_2=address_line_2,
-        city=city,
-        state=state,
-        country_code=country,
-        pincode=pincode
+        city=city
       )
     except IntegrityError as err:
       return Response({"error": "Insufficient Data"}, status=400)
     # If Everything goes smooth then return the profile
     return Response(self.serializer_class(profile).data)
 
-
-class CountriesData(APIView):
-  permission_classes = [AllowAny]
-
-  def get(self, *args, **kwargs):
-    return Response(BillingProfile.CountriesChoises.choices)
