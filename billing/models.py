@@ -1,10 +1,9 @@
-import stripe
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import post_save
 
-stripe.api_key = settings.STRIPE_API_KEY
 User = get_user_model()
 
 
@@ -277,8 +276,6 @@ class BillingProfile(models.Model):
         choices=CountriesChoises.choices, max_length=2, default=CountriesChoises.IN)
     pincode = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    stripe_customer_id = models.CharField(
-        max_length=100, blank=True, null=True)
 
     objects = BillingProfileManager()
 
@@ -291,33 +288,7 @@ class BillingProfile(models.Model):
 
 
 def billing_profile_created_receiver(sender, instance: BillingProfile, created, *args, **kwargs):
-    if created:
-        customer = stripe.Customer.create(
-            name=instance.name,
-            email=instance.email,
-            address={
-                "line1": instance.address_line_1,
-                "line2": instance.address_line_2,
-                "city": instance.city,
-                "state": instance.state,
-                "country": instance.country_code,
-                "postal_code": instance.pincode
-            })
-        instance.stripe_customer_id = customer.stripe_id
-        instance.save()
-    else:
-        customer = stripe.Customer.modify(
-            instance.stripe_customer_id,
-            name=instance.name,
-            email=instance.email,
-            address={
-                "line1": instance.address_line_1,
-                "line2": instance.address_line_2,
-                "city": instance.city,
-                "state": instance.state,
-                "country": instance.country_code,
-                "postal_code": instance.pincode
-            })
+    pass
 
 
 post_save.connect(billing_profile_created_receiver, sender=BillingProfile)
