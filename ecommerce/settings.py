@@ -42,11 +42,17 @@ INSTALLED_APPS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2qc4i64r5ik3d',
+        'HOST': 'ec2-52-86-25-51.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'jfykamgsfhmnkj',
+        'PASSWORD': '096dd34c0fa6276b937ddee88cf5165bc3e59871644d574ef211c3c13c300d3b',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
