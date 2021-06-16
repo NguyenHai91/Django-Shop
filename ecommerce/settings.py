@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd2qc4i64r5ik3d',
         'HOST': 'ec2-52-86-25-51.compute-1.amazonaws.com',
         'PORT': 5432,
