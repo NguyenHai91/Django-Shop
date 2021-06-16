@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = False if os.environ.get('PRODUCTION') == '1' else True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://django-shop3.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://django-shop3.herokuapp.com/']
 
 INSTALLED_APPS = [
     # in-build apps
