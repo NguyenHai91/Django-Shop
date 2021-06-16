@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 SECRET_KEY = os.environ.get(
     'SECRET_KEY', 'ks2zg!5l!0w#qwwp_=l*q*vio-!yxioq6n#qo_pzo5to77f2n-')
 
-DEBUG = False if os.environ.get('PRODUCTION') == '1' else True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://django-shop3.herokuapp.com/']
 
