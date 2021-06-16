@@ -163,13 +163,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# Razorpay Settings
-CURRENCY = {
-    'code': 'INR',
-    'symbol': '₹'
-}
-
-
 # This will Help django To Log To Console
 LOGGING = {
     'version': 1,

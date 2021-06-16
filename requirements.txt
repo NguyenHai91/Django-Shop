@@ -28,3 +28,5 @@ toml==0.10.2
 virtualenv==20.4.2
 whitenoise==5.2.0
 wrapt==1.12.1
+gunicorn 20.1.0
+
