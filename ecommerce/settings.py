@@ -5,8 +5,7 @@ from pathlib import Path
 
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_DIR = os.path.dirname(os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 SECRET_KEY = os.environ.get(
@@ -153,18 +152,18 @@ DEFAULT_FROM_EMAIL = 'hainguyen4391@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-# Static File Settings
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'project_static'),
-]
-
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Static File Settings
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'project_static'),
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # This will Help django To Log To Console
@@ -200,8 +199,6 @@ LOGGING = {
         }
     }
 }
-
-DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # CORS Settings
 CORS_ORIGIN_ALLOW_ALL = True
