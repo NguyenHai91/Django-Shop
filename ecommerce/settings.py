@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://django-shop3.herokuapp.com/']
+ALLOWED_HOSTS = ['django-shop3.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     # in-build apps
@@ -45,12 +45,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd2qc4i64r5ik3d',
         'HOST': 'ec2-52-86-25-51.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'PORT': 5432,
         'USER': 'jfykamgsfhmnkj',
         'PASSWORD': '096dd34c0fa6276b937ddee88cf5165bc3e59871644d574ef211c3c13c300d3b',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+       
     }
 }
 
