@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['hainguyen.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hainguyen91.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     # in-build apps
