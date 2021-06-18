@@ -11,9 +11,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = os.environ.get(
     'SECRET_KEY', 'ks2zg!5l!0w#qwwp_=l*q*vio-!yxioq6n#qo_pzo5to77f2n-')
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['django-shop3.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hainguyen.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     # in-build apps
@@ -39,21 +39,27 @@ INSTALLED_APPS = [
     'ckeditor'
 ]
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd2qc4i64r5ik3d',
+#         'HOST': 'ec2-52-86-25-51.compute-1.amazonaws.com',
+#         'PORT': 5432,
+#         'USER': 'jfykamgsfhmnkj',
+#         'PASSWORD': '096dd34c0fa6276b937ddee88cf5165bc3e59871644d574ef211c3c13c300d3b',
+       
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2qc4i64r5ik3d',
-        'HOST': 'ec2-52-86-25-51.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'jfykamgsfhmnkj',
-        'PASSWORD': '096dd34c0fa6276b937ddee88cf5165bc3e59871644d574ef211c3c13c300d3b',
-       
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,7 +169,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'project_static'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # This will Help django To Log To Console
@@ -202,10 +208,3 @@ LOGGING = {
 
 # CORS Settings
 CORS_ORIGIN_ALLOW_ALL = True
-
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
-
-import django_heroku
-django_heroku.settings(locals())
