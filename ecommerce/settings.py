@@ -161,7 +161,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/hainguyen91/Django-Shop/staticfiles'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static File Settings
